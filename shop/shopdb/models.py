@@ -71,10 +71,10 @@ class Card(models.Model):
     def __str__(self):
         return self.discount
 
-    issued = models.CharField(max_length=200)
+    issued = models.DateField()
     def __str__(self):
         return self.issued
 
-    expires = models.CharField(max_length=200)
+    expires = models.DateField()
     def __str__(self):
         return self.expires
