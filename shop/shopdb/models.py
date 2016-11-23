@@ -120,3 +120,21 @@ class Employee(models.Model):
     eemail = models.CharField(max_length=200)
     def __str__(self):
         return self.eemail
+
+class Order(models.Model):
+    shop = models.ForeignKey(Shop, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.shop
+
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.client
+
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.employee
+
+    collection_date = models.DateField()
+    def __str__(self):
+        return self.collection_date
+
