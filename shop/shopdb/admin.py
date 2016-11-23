@@ -5,4 +5,4 @@ from .models import ProductAttributes
 # Register your models here.
 
 admin.site.register(ItemGroupCatalog)
-
+admin.site.register(ProductAttributes)

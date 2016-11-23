@@ -8,6 +8,10 @@ class ItemGroupCatalog(models.Model):
         return self.item_group
 
 class ProductAttributes(models.Model):
+    itemgroupcatalog = models.ForeignKey(ItemGroupCatalog, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.itemgroupcatalog
+
     name = models.CharField(max_length=200)
     def __str__(self):
         return self.name
@@ -16,10 +20,12 @@ class ProductAttributes(models.Model):
     def __str__(self):
         return self.size
 
-    price = models.FloatField
+    price = models.CharField(max_length=200)
     def __str__(self):
         return self.price
 
     brand = models.CharField(max_length=200)
     def __str__(self):
         return self.brand
+
+class 
