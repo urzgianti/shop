@@ -78,3 +78,16 @@ class Card(models.Model):
     expires = models.DateField()
     def __str__(self):
         return self.expires
+
+class Shop(models.Model):
+    shopname = models.CharField()
+    def __str__(self):
+        return self.shopname
+
+    address = models.CharField()
+    def __str__(self):
+        return self.address
+
+    shopphone = models.CharField()
+    def __str__(self):
+        return self.shopphone
