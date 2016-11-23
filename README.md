@@ -7,3 +7,7 @@
 sukurem project: django-admin startproject shop
 paleidom appsą su: python manage.py runserver
 sukūrėm .gitignore, kuriame extensions, kokius failus pucharmui ignoruot (.idea - pycharm nustatymai; .pyc - c failai pritaikyti pythonui)
+pirma lentelė ItemGroup
+superuser: admin
+pass: adminadmin
+
