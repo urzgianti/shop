@@ -1,5 +1,10 @@
 from django.db import models
 
+GENDER = (
+    ('FEMALE', 'female'),
+    ('MALE', 'male'),
+)
+
 # Create your models here.
 
 class ItemGroupCatalog(models.Model):
@@ -37,11 +42,11 @@ class Client(models.Model):
     def __str__(self):
         return self.lname
 
-    gender = models.CharField(max_length=200)
+    gender = models.CharField(max_length=6, choices=GENDER)
     def __str__(self):
         return self.gender
 
-    bdate = models.CharField(max_length=200)
+    bdate = models.DateField()
     def __str__(self):
         return self.bdate
 
@@ -58,3 +63,18 @@ class Client(models.Model):
         return self.city
 
 class Card(models.Model):
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.client
+
+    discount = models.CharField(max_length=200)
+    def __str__(self):
+        return self.discount
+
+    issued = models.CharField(max_length=200)
+    def __str__(self):
+        return self.issued
+
+    expires = models.CharField(max_length=200)
+    def __str__(self):
+        return self.expires

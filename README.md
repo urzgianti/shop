@@ -25,3 +25,12 @@ sukurta productattributes klase su modeliais
     itemgroupcatalog = models.ForeignKey(ItemGroupCatalog, on_delete=models.CASCADE)
     def __str__(self):
         return self.itemgroupcatalog
+        
+sukurta kliento lentele, migruota
+
+**drop-down listas lyciai kliento lyciai pasirinkti:**
+GENDER = (
+    ('FEMALE', 'female'),
+    ('MALE', 'male'),
+)
+
