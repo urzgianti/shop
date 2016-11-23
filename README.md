@@ -18,3 +18,10 @@ class ItemGroupCatalog(models.Model):
         return self.item_group
  
 idejom dvi prekiu grupes: veidas ir kunas
+
+sukurta productattributes klase su modeliais
+
+**foreign key nauodojimas:**
+    itemgroupcatalog = models.ForeignKey(ItemGroupCatalog, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.itemgroupcatalog
