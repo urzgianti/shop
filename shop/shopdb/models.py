@@ -80,14 +80,43 @@ class Card(models.Model):
         return self.expires
 
 class Shop(models.Model):
-    shopname = models.CharField()
+    shopname = models.CharField(max_length=200)
     def __str__(self):
         return self.shopname
 
-    address = models.CharField()
+    address = models.CharField(max_length=200)
     def __str__(self):
         return self.address
 
-    shopphone = models.CharField()
+    shopphone = models.CharField(max_length=200)
     def __str__(self):
         return self.shopphone
+
+class Employee(models.Model):
+    shop = models.ForeignKey(Shop, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.shop
+
+    efname = models.CharField(max_length=200)
+    def __str__(self):
+        return self.efname
+
+    elname = models.CharField(max_length=200)
+    def __str__(self):
+        return self.elname
+
+    egender = models.CharField(max_length=6, choices=GENDER)
+    def __str__(self):
+        return self.egender
+
+    ebdate = models.DateField()
+    def __str__(self):
+        return self.ebdate
+
+    ephone = models.CharField(max_length=200)
+    def __str__(self):
+        return self.ephone
+
+    eemail = models.CharField(max_length=200)
+    def __str__(self):
+        return self.eemail
