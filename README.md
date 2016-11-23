@@ -34,3 +34,10 @@ GENDER = (
     ('MALE', 'male'),
 )
 
+kai atvaizduoti kelis kintamuosius:
+    def __str__(self):
+        return "%s %s" % (self.fname, self.lname)
+        
+kai atvaizduojame ID, pvz prie card number:
+    def __int__(self):
+        return self.id
