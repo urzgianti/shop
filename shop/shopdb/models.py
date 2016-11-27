@@ -36,14 +36,13 @@ class Client(models.Model):
         return "%s %s" % (self.fname, self.lname)
 
 class Card(models.Model):
-    id = models.AutoField(primary_key=True)
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
     discount = models.CharField(max_length=200)
     issued = models.DateField()
     expires = models.DateField()
 
-    def __int__(self):
-        return self.id
+    def __str__(self):
+        return self.client
 
 class Shop(models.Model):
     shopname = models.CharField(max_length=200)
@@ -75,9 +74,12 @@ class Order(models.Model):
     def __int__(self):
         return self.id
 
+
 class Basket(models.Model):
     product = models.ManyToManyField(Product)
     client = models.ManyToManyField(Client)
 
     def __int__(self):
         return self.id
+
+
