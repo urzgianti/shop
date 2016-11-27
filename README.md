@@ -5,6 +5,10 @@
 ---
 
 sukurem project: django-admin startproject shop
+migruojam lenteles:
+python manage.py makemigrations shopdb
+python manage.py sqlmigrate shopdb 0001
+python manage.py migrate
 paleidom appsą su: python manage.py runserver
 sukūrėm .gitignore, kuriame extensions, kokius failus pucharmui ignoruot (.idea - pycharm nustatymai; .pyc - c failai pritaikyti pythonui)
 pirma lentelė ItemGroup
