@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import Basket
 from .models import ItemGroupCatalog
-from .models import ProductAttribute
+from .models import Product
 from .models import Client
 from .models import Card
 from .models import Shop
@@ -12,7 +12,7 @@ from .models import Order
 
 admin.site.register(Basket)
 admin.site.register(ItemGroupCatalog)
-admin.site.register(ProductAttribute)
+admin.site.register(Product)
 admin.site.register(Client)
 admin.site.register(Card)
 admin.site.register(Shop)

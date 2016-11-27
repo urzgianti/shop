@@ -6,18 +6,20 @@ GENDER = (
 )
 
 # Create your models here.
-
 class ItemGroupCatalog(models.Model):
+
     item_group = models.CharField(max_length=200)
     def __str__(self):
         return self.item_group
 
-class ProductAttribute(models.Model):
+class Product(models.Model):
+
     itemgroupcatalog = models.ForeignKey(ItemGroupCatalog, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
     size = models.CharField(max_length=200)
     price = models.CharField(max_length=200)
     brand = models.CharField(max_length=200)
+
     def __str__(self):
         return self.name
 
@@ -34,10 +36,12 @@ class Client(models.Model):
         return "%s %s" % (self.fname, self.lname)
 
 class Card(models.Model):
+    id = models.AutoField(primary_key=True)
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
     discount = models.CharField(max_length=200)
     issued = models.DateField()
     expires = models.DateField()
+
     def __int__(self):
         return self.id
 
@@ -61,16 +65,19 @@ class Employee(models.Model):
     def __str__(self):
         return "%s %s" % (self.efname, self.elname)
 
-
 class Order(models.Model):
+
     shop = models.ForeignKey(Shop, on_delete=models.CASCADE)
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
     collection_date = models.DateField()
+
     def __int__(self):
         return self.id
 
 class Basket(models.Model):
-    productattribute = models.ManyToManyField(ProductAttribute)
+    product = models.ManyToManyField(Product)
+    client = models.ManyToManyField(Client)
+
     def __int__(self):
         return self.id
