@@ -27,17 +27,4 @@ class CardAdmin(admin.ModelAdmin):
     search_fields = ('client__fname', "client__lname", 'discount', 'issued', 'expires')
     list_filter = ('client__fname', "client__lname", 'discount', 'issued', 'expires')
 
-@admin.register(Shop)
-class ShopAdmin(admin.ModelAdmin):
-    list_display = ["shopname", "address", "shopphone",]
-    search_fields = ["shopname", "address", "shopphone",]
-    list_filter = ["shopname", "address", "shopphone",]
 
-@admin.register(Employee)
-class EmployeeAdmin(admin.ModelAdmin):
-    list_display = ["shop", "efname", "elname", "egender", "ebdate", "ephone", "eemail"]
-    search_fields = ["shop__shopname", "efname", "elname", "egender", "ebdate", "ephone", "eemail"]
-    list_filter = ["shop__shopname", "efname", "elname", "egender"]
-
-@admin.register(Order)
-class OrderAdmin(admin.ModelAdmin):
