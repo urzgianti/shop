@@ -65,3 +65,24 @@ class Employee(models.Model):
 
     def __str__(self):
         return "%s %s" % (self.efname, self.elname)
+
+class Order(models.Model):
+
+    shop = models.ForeignKey(Shop, on_delete=models.CASCADE)
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    collection_date = models.DateField()
+
+    def __int__(self):
+        return self.id
+
+
+class Basket(models.Model):
+    product = models.ManyToManyField(Product)
+    client = models.ManyToManyField(Client)
+
+    def __int__(self):
+        return self.id
+
+
+

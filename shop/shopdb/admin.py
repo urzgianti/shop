@@ -28,3 +28,22 @@ class CardAdmin(admin.ModelAdmin):
     list_filter = ('client__fname', "client__lname", 'discount', 'issued', 'expires')
 
 
+@admin.register(Shop)
+class ShopAdmin(admin.ModelAdmin):
+    list_display = ["shopname", "address", "shopphone",]
+    search_fields = ["shopname", "address", "shopphone",]
+    list_filter = ["shopname", "address", "shopphone",]
+
+@admin.register(Employee)
+class EmployeeAdmin(admin.ModelAdmin):
+    list_display = ["shop", "efname", "elname", "egender", "ebdate", "ephone", "eemail"]
+    search_fields = ["shop__shopname", "efname", "elname", "egender", "ebdate", "ephone", "eemail"]
+    list_filter = ["shop__shopname", "efname", "elname", "egender"]
+
+@admin.register(Order)
+class OrderAdmin(admin.ModelAdmin):
+    list_display = ("shop", "client", "employee", "collection_date")
+    search_fields = ("shop__shopname", 'client__fname', "client__lname", "employee__efname", "employee__elname", "collection_date")
+    list_filter = ("shop__shopname", 'client__fname', "client__lname", "employee__efname", "employee__elname", "collection_date")
+
+admin.site.register(Basket)
