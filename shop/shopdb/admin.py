@@ -48,8 +48,8 @@ class OrderAdmin(admin.ModelAdmin):
 @admin.register(Basket)
 class BasketAdmin(admin.ModelAdmin):
     list_display = ("id",)
-    search_fields = ("id",)
-    list_filter = ("id",)
+    search_fields = ("id", "client")
+    list_filter = ("id", "client")
 
 
 
