@@ -70,16 +70,23 @@ class Order(models.Model):
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
     collection_date = models.DateField()
+    id = models.AutoField(primary_key=True)
 
     def __int__(self):
         return self.id
 
+    def __str__(self):
+        return "order {}".format(self.id)
 
 class Basket(models.Model):
     product = models.ManyToManyField(Product)
     client = models.ManyToManyField(Client)
+    id = models.AutoField(primary_key=True)
 
     def __int__(self):
         return self.id
+
+    def __str__(self):
+        return "basket {}".format(self.id)
 
 
