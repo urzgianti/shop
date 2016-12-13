@@ -35,8 +35,6 @@ class Client(models.Model):
     def __str__(self):
         return "%s %s" % (self.fname, self.lname)
 
-    def __repr__(self):
-        return "%s %s" % ("ksdfhsdjkfhsdjk", "lsbssdd")
 
 
 class Card(models.Model):
@@ -87,11 +85,11 @@ class Basket(models.Model):
     client = models.ManyToManyField(Client)
     id = models.AutoField(primary_key=True)
     # FIXME: needs some filtering
-    clientother = "None"
 
 
-    def __int__(self):
-        return self.id
+
+    #def __int__(self):
+    #   return self.id
 
     def __str__(self):
         return "basket {}".format(self.id)
