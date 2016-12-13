@@ -37,6 +37,7 @@ class Client(models.Model):
 
 
 
+
 class Card(models.Model):
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
     discount = models.CharField(max_length=200)
@@ -80,6 +81,9 @@ class Order(models.Model):
 class Basket(models.Model):
     product = models.ManyToManyField(Product)
     client = models.ManyToManyField(Client)
+    id = models.AutoField(primary_key=True)
+    # FIXME: needs some filtering
+    clientother = "None"
 
     def __int__(self):
         return self.id

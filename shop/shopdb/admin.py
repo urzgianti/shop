@@ -45,5 +45,13 @@ class OrderAdmin(admin.ModelAdmin):
     list_display = ("shop", "client", "employee", "collection_date")
     search_fields = ("shop__shopname", 'client__fname', "client__lname", "employee__efname", "employee__elname", "collection_date")
     list_filter = ("shop__shopname", 'client__fname', "client__lname", "employee__efname", "employee__elname", "collection_date")
+    list_display = ("id", "shop", "client", "employee", "collection_date")
+    search_fields = ("id", "shop__shopname", 'client__fname', "client__lname", "employee__efname", "employee__elname", "collection_date")
+    list_filter = ("id", "shop__shopname", 'client__fname', "client__lname", "employee__efname", "employee__elname", "collection_date")
 
-admin.site.register(Basket)
+@admin.register(Basket)
+class BasketAdmin(admin.ModelAdmin):
+    list_display = ("id", "clientother")
+    search_fields = ("id", "client__fname")
+    list_filter = ("id", "client__fname")
+
