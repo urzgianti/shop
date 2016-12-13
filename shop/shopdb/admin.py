@@ -41,15 +41,3 @@ class EmployeeAdmin(admin.ModelAdmin):
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ("id", "shop", "client", "employee", "collection_date")
-    search_fields = ("id", "shop__shopname", 'client__fname', "client__lname", "employee__efname", "employee__elname", "collection_date")
-    list_filter = ("id", "shop__shopname", 'client__fname', "client__lname", "employee__efname", "employee__elname", "collection_date")
-
-@admin.register(Basket)
-class BasketAdmin(admin.ModelAdmin):
-    list_display = ("id",)
-    search_fields = ("id", "client__fname")
-    list_filter = ("id", "client__fname")
-
-
-
