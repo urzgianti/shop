@@ -42,7 +42,7 @@ class Card(models.Model):
     expires = models.DateField()
 
     def __str__(self):
-        return self.client
+        return str(self.client)
 
 class Shop(models.Model):
     shopname = models.CharField(max_length=200)
